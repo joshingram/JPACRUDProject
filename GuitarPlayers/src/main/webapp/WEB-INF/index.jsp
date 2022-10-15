@@ -12,8 +12,11 @@
 
 	<h1>Guitar Player Home Page</h1>
 	
+	Don't see your favorite player?  <a href="addPlayer.html">Add a player</a> <br><br>
+	
+	Current Players:
 	<c:forEach var="player" items="${guitarPlayers}">
-	<li>${player.firstName }</li>
+	<li><a href="showPlayer.do?pid=${player.id}">${player.firstName} ${player.lastName}</a></li>
 	</c:forEach>
 
 </body>

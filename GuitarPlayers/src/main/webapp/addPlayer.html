@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Add a Player</title>
+</head>
+<body>
+	<h1>Add a Player</h1>
+
+	<form action="addPlayer.do" method="POST">
+  		<label for="fname">First name:</label>
+ 		<input type="text" id="fname" name="firstName" required><br>
+  
+  		<label for="lname">Last name:</label>
+  		<input type="text" id="lname" name="lastName" required><br>
+  
+  		<label for="gbrand">Guitar brand:</label>
+  		<input type="text" id="gbrand" name="guitarBrand"><br>
+  
+  		<label for="bplace">Birth place:</label>
+  		<input type="text" id="bplace" name="birthPlace"><br>
+  
+  		<label for="bcountry">Birth country:</label>
+  		<input type="text" id="bcountry" name="birthCountry"><br>
+  
+  		<label for="bdate">Birth date:</label>
+  		<input type="date" id="bdate" name="birthDay"><br>
+  
+  		<label for="ddate">Date deceased:</label>
+  		<input type="date" id="ddate" name="deceasedDay"><br>
+  	
+  		<label for="remarks">Remarks:</label>
+  		<textarea id="remarks" name="remarks" rows="4" cols="50"></textarea><br>
+  
+  		<input type="submit" value="Submit">
+  
+	</form>
+   </body>
+</html>

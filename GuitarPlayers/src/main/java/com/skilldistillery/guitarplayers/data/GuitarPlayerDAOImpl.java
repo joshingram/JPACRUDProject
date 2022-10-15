@@ -13,7 +13,7 @@ import com.skilldistillery.guitarplayers.entities.Player;
 @Service
 @Transactional
 public class GuitarPlayerDAOImpl implements GuitarPlayerDAO {
-	
+
 	@PersistenceContext
 	private EntityManager em;
 
@@ -30,8 +30,10 @@ public class GuitarPlayerDAOImpl implements GuitarPlayerDAO {
 
 	@Override
 	public Player createPlayer(Player player) {
-		// TODO Auto-generated method stub
-		return null;
+
+		em.persist(player);
+
+		return player;
 	}
 
 	@Override
@@ -42,8 +44,13 @@ public class GuitarPlayerDAOImpl implements GuitarPlayerDAO {
 
 	@Override
 	public boolean deletePlayer(int playerId) {
-		// TODO Auto-generated method stub
-		return false;
+		Player player = em.find(Player.class, playerId);
+		em.remove(player);
+		
+		if(em.contains(player)) {
+			return false;
+		}
+		return true;
 	}
 
 }

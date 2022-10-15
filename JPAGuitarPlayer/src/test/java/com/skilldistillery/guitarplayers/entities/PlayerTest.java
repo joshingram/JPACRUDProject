@@ -3,6 +3,8 @@ package com.skilldistillery.guitarplayers.entities;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -43,10 +45,10 @@ class PlayerTest {
 	}
 
 	@Test
-	void test() {
+	void test_first_name_of_id_1() {
 		assertNotNull(player);
 		assertEquals("Eddie", player.getFirstName());
-		
+		assertEquals("Van Halen", player.getLastName());
 	}
 
 }
