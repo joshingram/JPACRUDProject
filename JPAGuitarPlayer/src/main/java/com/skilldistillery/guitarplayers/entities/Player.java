@@ -60,16 +60,31 @@ public class Player {
 		this.remarks = remarks;
 		//this.imageUrl = imageUrl;
 	}
-	public Player(String firstName, String lastName, String guitarBrand, String birthPlace, String birthCountry,
-			 String remarks) {   //, String imageUrl
+	public Player(int id, String firstName, String lastName, String guitarBrand, String birthPlace, String birthCountry,
+			LocalDate birthDay, LocalDate deceasedDay, String remarks) {   //, String imageUrl
+		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.guitarBrand = guitarBrand;
 		this.birthPlace = birthPlace;
 		this.birthCountry = birthCountry;
+		this.birthDay = birthDay;
+		this.deceasedDay = deceasedDay;
 		this.remarks = remarks;
 		//this.imageUrl = imageUrl;
 	}
+	
+	
+//	public Player(String firstName, String lastName, String guitarBrand, String birthPlace, String birthCountry,
+//			 String remarks) {   //, String imageUrl
+//		this.firstName = firstName;
+//		this.lastName = lastName;
+//		this.guitarBrand = guitarBrand;
+//		this.birthPlace = birthPlace;
+//		this.birthCountry = birthCountry;
+//		this.remarks = remarks;
+//		//this.imageUrl = imageUrl;
+//	}
 
 	public int getId() {
 		return id;

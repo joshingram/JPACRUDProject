@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Player Removed</title>
+<jsp:include page="bootStrapHead.jsp"/>
 </head>
 <body>
 Player removed?  ${playerRemoved} <br>

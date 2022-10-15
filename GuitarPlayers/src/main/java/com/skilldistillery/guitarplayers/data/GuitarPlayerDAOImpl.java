@@ -37,9 +37,18 @@ public class GuitarPlayerDAOImpl implements GuitarPlayerDAO {
 	}
 
 	@Override
-	public Player updatePlayer(int playerId, Player player) {
-		// TODO Auto-generated method stub
-		return null;
+	public Player updatePlayer(int playerId, Player playerUpdated) {
+		Player player = em.find(Player.class, playerId);
+		player.setFirstName(playerUpdated.getFirstName());
+		player.setLastName(playerUpdated.getLastName());
+		player.setGuitarBrand(playerUpdated.getGuitarBrand());
+		player.setBirthPlace(playerUpdated.getBirthPlace());
+		player.setBirthCountry(playerUpdated.getBirthCountry());
+		player.setBirthDay(playerUpdated.getBirthDay());
+		player.setDeceasedDay(playerUpdated.getDeceasedDay());
+		player.setRemarks(playerUpdated.getRemarks());
+		
+		return player;
 	}
 
 	@Override
