@@ -42,6 +42,9 @@ public class Player {
 	@Column(name="image_url")
 	private String imageUrl;
 	
+	@Column(name="video_url")
+	private String videoUrl;
+	
 	
 	//Methods:
 	public Player() {
@@ -49,7 +52,7 @@ public class Player {
 	}
 
 	public Player(String firstName, String lastName, String guitarBrand, String birthPlace, String birthCountry,
-			LocalDate birthDay, LocalDate deceasedDay, String remarks) {   //, String imageUrl
+			LocalDate birthDay, LocalDate deceasedDay, String remarks, String imageUrl) {  
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.guitarBrand = guitarBrand;
@@ -58,7 +61,7 @@ public class Player {
 		this.birthDay = birthDay;
 		this.deceasedDay = deceasedDay;
 		this.remarks = remarks;
-		//this.imageUrl = imageUrl;
+		this.imageUrl = imageUrl;
 	}
 	public Player(int id, String firstName, String lastName, String guitarBrand, String birthPlace, String birthCountry,
 			LocalDate birthDay, LocalDate deceasedDay, String remarks) {   //, String imageUrl
@@ -74,17 +77,6 @@ public class Player {
 		//this.imageUrl = imageUrl;
 	}
 	
-	
-//	public Player(String firstName, String lastName, String guitarBrand, String birthPlace, String birthCountry,
-//			 String remarks) {   //, String imageUrl
-//		this.firstName = firstName;
-//		this.lastName = lastName;
-//		this.guitarBrand = guitarBrand;
-//		this.birthPlace = birthPlace;
-//		this.birthCountry = birthCountry;
-//		this.remarks = remarks;
-//		//this.imageUrl = imageUrl;
-//	}
 
 	public int getId() {
 		return id;
@@ -166,6 +158,14 @@ public class Player {
 		this.imageUrl = imageUrl;
 	}
 
+
+	public String getVideoUrl() {
+		return videoUrl;
+	}
+
+	public void setVideoUrl(String videoUrl) {
+		this.videoUrl = videoUrl;
+	}
 
 	@Override
 	public String toString() {

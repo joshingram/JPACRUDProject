@@ -1,6 +1,7 @@
 package com.skilldistillery.guitarplayers.controllers;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,15 +29,21 @@ public class GuitarPlayerController {
 	@RequestMapping(path = "showPlayer.do")
 	public String showPlayer(Integer pid, Model model) {
 		model.addAttribute("player", playerDAO.findById(pid));
+		Player player = playerDAO.findById(pid);
+		boolean alive = player.getDeceasedDay() == null;
+		model.addAttribute("alive", alive);
 		return "showPlayer";
 	}
 
 	@RequestMapping(path = "addPlayer.do", method = RequestMethod.POST)
 	public ModelAndView addPlayer(String firstName, String lastName, String guitarBrand, String birthPlace,
-			String birthCountry, String remarks, LocalDate birthDay, LocalDate deceasedDay, RedirectAttributes redir) { //
+			String birthCountry, String remarks, String birthDay, String deceasedDay, String imageUrl, RedirectAttributes redir) { //
 		ModelAndView mv = new ModelAndView();
-		Player player = new Player(firstName, lastName, guitarBrand, birthPlace, birthCountry, birthDay, deceasedDay,
-				remarks);
+		
+		LocalDate bd = LocalDate.parse(birthDay);
+		LocalDate dd = LocalDate.parse(deceasedDay);
+		Player player = new Player(firstName, lastName, guitarBrand, birthPlace, birthCountry, bd, dd,
+				remarks, imageUrl);
 		System.out.println(player);
 		Player newPlayer = playerDAO.createPlayer(player);
 
@@ -78,11 +85,13 @@ public class GuitarPlayerController {
 	@RequestMapping(path = "updatePlayerForm.do", method = RequestMethod.POST)
 
 	public ModelAndView updatePlayer(Integer pid, String firstName, String lastName, String guitarBrand,
-			String birthPlace, String birthCountry, LocalDate birthDay, LocalDate deceasedDay, String remarks,
+			String birthPlace, String birthCountry, String birthDay, String deceasedDay, String remarks,
 			RedirectAttributes redir) {
-
-		Player player = new Player(pid, firstName, lastName, guitarBrand, birthPlace, birthCountry, birthDay,
-				deceasedDay, remarks);
+		
+		LocalDate bd = LocalDate.parse(birthDay);
+		LocalDate dd = LocalDate.parse(deceasedDay);
+		Player player = new Player(pid, firstName, lastName, guitarBrand, birthPlace, birthCountry, bd,
+				dd, remarks);
 
 		Player updatedPlayer = playerDAO.updatePlayer(pid, player);
 		ModelAndView mv = new ModelAndView();

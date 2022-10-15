@@ -12,10 +12,29 @@ body {
 	background-size: inherit;
 	background-position: 50% 50%;
 	color: rgb(255, 236, 179);
-	
+}
+
+#playerImage{
+   
+    height: 600px;
+    /* you need to match the shadow color to your background or image border for the desired effect*/
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
 @font-face {
   font-family: stratFont;
   src: url(strato-linked-webfont.woff);
 }
+
+input[type="text"], textarea {
+
+  background-color : rgb(255, 236, 179); }
+  
+  
+input[type="date"], textarea {
+
+  background-color : rgb(255, 236, 179); }
+  
+input[type="submit"], textarea {
+
+  background-color : rgb(255, 236, 179); }

@@ -21,7 +21,7 @@
   		<label for="lname">Last name:</label>
   		<input type="text" id="lname" name="lastName" value="${player.lastName}" required><br>
   
-  		<label for="gbrand">Guitar brand:</label>
+  		<label for="gbrand">Guitar:</label>
   		<input type="text" id="gbrand" name="guitarBrand" value="${player.guitarBrand}"><br>
   
   		<label for="bplace">Birth place:</label>
