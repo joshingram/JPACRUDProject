@@ -63,8 +63,10 @@ public class Player {
 		this.remarks = remarks;
 		this.imageUrl = imageUrl;
 	}
+	
+	//no image url
 	public Player(int id, String firstName, String lastName, String guitarBrand, String birthPlace, String birthCountry,
-			LocalDate birthDay, LocalDate deceasedDay, String remarks) {   //, String imageUrl
+			LocalDate birthDay, LocalDate deceasedDay, String remarks) { 
 		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -74,7 +76,7 @@ public class Player {
 		this.birthDay = birthDay;
 		this.deceasedDay = deceasedDay;
 		this.remarks = remarks;
-		//this.imageUrl = imageUrl;
+		
 	}
 	
 

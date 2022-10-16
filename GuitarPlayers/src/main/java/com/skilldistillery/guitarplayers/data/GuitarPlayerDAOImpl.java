@@ -30,9 +30,7 @@ public class GuitarPlayerDAOImpl implements GuitarPlayerDAO {
 
 	@Override
 	public Player createPlayer(Player player) {
-
 		em.persist(player);
-
 		return player;
 	}
 

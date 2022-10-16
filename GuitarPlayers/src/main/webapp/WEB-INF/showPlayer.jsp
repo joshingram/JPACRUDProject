@@ -12,16 +12,42 @@
 <body>
 	<div class="row">
 		<div class="col-sm-6">
-			<h1>Details for ${player.firstName} ${player.lastName}</h1>
+			<h1>${player.firstName} ${player.lastName}</h1>
 			<ul>
-				<li>Guitar: ${player.guitarBrand }</li>
-				<li>Born in: ${player.birthPlace }</li>
-				<li>Nationality: ${player.birthCountry }</li>
-				<li>Born on: ${player.birthDay}</li>
-				<c:if test="${!alive}">
-				<li>Died on: ${player.deceasedDay}</li>
-				</c:if> 
-				<li>Remarks: ${player.remarks}</li>
+				<c:if test="${not empty player.guitarBrand }">
+					 <li>Guitar type: ${player.guitarBrand }</li>
+				</c:if>
+				
+				<c:if test="${not empty player.birthPlace or not empty player.birthCountry}">
+					<li>From:&nbsp; 
+				</c:if>
+				<c:if test="${not empty player.birthPlace}">
+					${player.birthPlace}&nbsp; 
+				</c:if>
+				<c:if test="${not empty player.birthCountry}">
+					${player.birthCountry}
+				 </c:if>
+				
+				 
+		 		<c:if test="${hasBirth}">
+					<li>${player.birthDay}&#160;
+				</c:if>
+				<c:if test="${hasBirth && hasDeath}">
+					to&#160;
+				</c:if>
+				<c:if test="${not hasBirth && hasDeath }">
+					passed on: 
+				 </c:if>
+					<c:if test="${hasDeath}">
+						${player.deceasedDay}
+					</c:if> 
+					<c:if test="${hasBirth && not hasDeath}">
+						and still rocking.
+					</c:if>
+				
+				<c:if test="${not empty player.remarks}">
+					<li>${player.remarks}</li>
+				</c:if>
 			</ul>
 
 			<c:if test="${playerAdded}">
@@ -31,11 +57,11 @@
 				<p>Successfully updated.</p>
 			</c:if>
 			
+			<a href="updatePlayer.do?pid=${player.id}">Update this player</a>&nbsp; 
+			<a href="deletePlayer.do?pid=${player.id}">Delete this player</a>&#160;
+			<a href="home.do">Home</a><br>
+			
 				${player.videoUrl}
-		
-			<a href="updatePlayer.do?pid=${player.id}">Update this player</a>
-			<a href="deletePlayer.do?pid=${player.id}">Delete this player</a>
-			<a href="home.do">Home</a>
 		</div>
 
 		<div class="col-sm-6">
