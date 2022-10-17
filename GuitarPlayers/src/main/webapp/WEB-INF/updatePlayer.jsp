@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Update Player</title>
-<jsp:include page="bootStrapHead.jsp"/>
+	<meta charset="UTF-8">
+	<title>Update Player</title>
+	<jsp:include page="bootStrapHead.jsp"/>
 </head>
 <body>
 
@@ -38,6 +38,9 @@
   	
   		<label for="remarks">Remarks:</label>
   		<textarea id="remarks" name="remarks" rows="4" cols="50">${player.remarks}</textarea><br>
+  		
+  		<label for="image">Image URL:</label>
+  		<input type="text" id="image" name="imageUrl" value="${player.imageUrl}"><br>
   
   		<input type="submit" value="Submit">
   

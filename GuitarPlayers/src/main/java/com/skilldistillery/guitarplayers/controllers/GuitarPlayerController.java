@@ -106,9 +106,8 @@ public class GuitarPlayerController {
 	}
 
 	@RequestMapping(path = "updatePlayerForm.do", method = RequestMethod.POST)
-
 	public ModelAndView updatePlayer(Integer pid, String firstName, String lastName, String guitarBrand,
-			String birthPlace, String birthCountry, String birthDay, String deceasedDay, String remarks,
+			String birthPlace, String birthCountry, String birthDay, String deceasedDay, String remarks, String imageUrl,
 			RedirectAttributes redir) {
 		
 		LocalDate bd = null;
@@ -127,7 +126,7 @@ public class GuitarPlayerController {
 			dd = LocalDate.parse(deceasedDay);
 		} 
 		
-		Player player = new Player(pid, firstName, lastName, guitarBrand, birthPlace, birthCountry, bd, dd, remarks);
+		Player player = new Player(pid, firstName, lastName, guitarBrand, birthPlace, birthCountry, bd, dd, remarks, imageUrl);
 
 		Player updatedPlayer = playerDAO.updatePlayer(pid, player);
 		ModelAndView mv = new ModelAndView();
