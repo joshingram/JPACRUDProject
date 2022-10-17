@@ -9,7 +9,7 @@
 <title>Player Details</title>
 <jsp:include page="bootStrapHead.jsp" />
 </head>
-<body>
+<body class="show">
 	<div class="row">
 		<div class="col-sm-6">
 			<h1>${player.firstName} ${player.lastName}</h1>
@@ -61,12 +61,12 @@
 			<a href="deletePlayer.do?pid=${player.id}">Delete this player</a>&#160;
 			<a href="home.do">Home</a><br>
 			
-				${player.videoUrl}
+				<div class="videowrapper">${player.videoUrl}</div>
 		</div>
 
 		<div class="col-sm-6">
 		  <c:if test="${not empty player.imageUrl}">
-			<img id="playerImage" src="${player.imageUrl}" alt="${player.lastName}">
+			<div class="img-container"></div><img id="playerImage" src="${player.imageUrl}" alt="${player.lastName}"></div>
 			</c:if>
 		</div>
 	</div>
